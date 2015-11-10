@@ -21,6 +21,8 @@ function chargeAmountUser($msisdn, $price, $cur, $token){
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20); 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);	// Will return the response, if false it print the response
 	curl_setopt($ch, CURLOPT_URL,$url);	// Set the url
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	$result=curl_exec($ch);	// Execute
 	$parsed_json = json_decode($result, true);
 	$httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
